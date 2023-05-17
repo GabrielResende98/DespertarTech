@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Formulário de inscrição</title>
+    <style>
+      .error {
+        color: red;
+      }
+    
+      
+    </style>
+</head>
+<body
+background="https://img.elo7.com.br/product/zoom/256E4CA/big-poster-gamer-assassins-creed-brotherhood-09-tam-90x60-cm-nerd.jpg".>
+<center>
+   <h1>Formulário de inscrição</h1>
+   <form id="form-inscrição" onsubmit="return validarFormulário()">
+   <label for="nome">Nome:</label>
+   <input type="text id="nome" name="nome" required>
+   <span id="nome-error" class="error"></span>
+</center>
+   <br>
+<center>
+   <label for="email">E-mail:</label>
+   <input type="email" id="email" name="email" required>
+   <span id="email-error" class="error"></span>
+</center>
+   <br>
+<center>
+   <label for="idade">Idade:</label>
+   <input type="number" id="idade" name="idade" required>
+   <span id="idade-error" class="error"></span>
+</center>
+   <br>
+<center>
+   <button type="submit">Enviar</button>
+</center>
+</form>
+
+<script>
+    function validarFormulário() {
+      const form = document.getElementById('form-inscrição');
+      const nomeInput = document.getElementById('nome');
+      const emailInput = document.getElementById('email');
+      const idadeInput = document.getElementById('idade');
+      let isValid = true;
+    
+      // Validação do campo Nome
+      if (nomeInput.value.trim() === '') {
+        document.getElementById('nome-error').textContent = 'O campo Nome é obrigatório';
+        isValid = false;
+      } else {
+        document.getElementById('nome-error').textContent = '';
+    }
+
+    // Validação do campo E-mail
+    if (emailInput.value.trim() === '') {
+        document.getElementById('email-error').textContent = 'O campo E-mail é obrigatório';
+        isValid = false;
+    } else {
+        document.getElementById('email-error').textContent = '';
+    }
+
+    // Validação do campo Idade
+    if (idadeInput.value.trim() === '') {
+      document.getElementById('idade-error').textContent = 'O campo Idade é obrigatório';
+      isValid = false;
+    } else if (isNaN(idadeInput.value)) {
+        document.getElementbyId('idade-error').textContent = 'A idade deve ser um número válido';
+        isValid = false;
+    } else {
+        document.getElementById('idade-error').textContent = '';
+    }
+
+    return isValid;
+
+    }
+</script>
+</body>
+</html>
